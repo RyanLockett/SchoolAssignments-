@@ -1,31 +1,27 @@
 <?php
-echo "<h1> Please enter your numbers</h1>
-<form method='GET'  action =' '> 
-you can only enter in numbers! <br><br>
-First number <input type='number' name='fbox'><br>
-Second number <input type='number' name='sbox'><br>
-
-<input type='submit' name='button' value='calculate'/>
-</form>";
-
-echo "<table border=1>";
-if (isset( $_GET['fbox']) and isset( $_GET['sbox'])){  // setting the first and second box
-
-
-
+	echo "
+	<h1>Please enter the number of rows and columns</h1>
 	
-        for ($r =1; $r <= $_GET['fbox']; $r++){
+	<form method='GET'  action =' '> 
+	You can only enter numbers! <br><br>
+	Rows <input type='number' name='fbox'><br>
+	Columns <input type='number' name='sbox'><br>
 
-            echo'<tr>';
-
-            for ($c = 1; $c <= $_GET['sbox']; $c++)
-                echo '<td>' .$c*$r.'</td>'; // logic for the table
-           echo '</tr>'; 
-		   
-
-        }
+	<input type='submit' name='button' value='Make Table'/>
+	</form>";
+	 
+	//fbox = rows of the multiplication table
+	//sbox = columns of the multiplication table
+	echo "<table border=1>";
+	if(isset($_GET['fbox']) && isset($_GET['sbox'])) {  
+		for($rows = 1; $rows <= $_GET['fbox']; $rows++) {
+			echo'<tr>';
+			for($columns = 1; $columns <= $_GET['sbox']; $columns++)
+				echo '<td>' . $columns * $row .'</td>'; 
+		   echo '</tr>'; 
+		}
 	}
-	
-
-  echo"</table>";
-  ?>
+	echo "
+	</table>
+	";
+?>
